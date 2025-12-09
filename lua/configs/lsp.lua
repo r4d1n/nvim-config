@@ -9,6 +9,8 @@ vim.lsp.enable("terraformls")
 vim.lsp.config("html", { filetypes = { "html", "handlebars" }, capabilities = capabilities })
 vim.lsp.enable("html")
 
+require("typescript-tools").setup({})
+
 require("elixir").setup({
 	nextls = {
 		enable = true,
