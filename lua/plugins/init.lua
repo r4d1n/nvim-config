@@ -33,6 +33,7 @@ return {
 		"nvim-telescope/telescope.nvim",
 		dependencies = { "nvim-lua/plenary.nvim" },
 	},
+	{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 	{ "sindrets/diffview.nvim", dependencies = "nvim-lua/plenary.nvim" },
 	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
 	{ "elixir-tools/elixir-tools.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
