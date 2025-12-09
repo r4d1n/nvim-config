@@ -1,14 +1,13 @@
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
+vim.lsp.config("*", { capabilities = capabilities })
 
--- require("lspconfig").tsserver.setup({ capabilities = cmp.capabilities }) -- commented in favor of the typescript tools plugin
-require("lspconfig").eslint.setup({ capabilities = capabilities })
-require("lspconfig").graphql.setup({ capabilities = capabilities })
-require("lspconfig").lua_ls.setup({ capabilities = capabilities })
-require("lspconfig").prismals.setup({ capabilities = capabilities })
-require("lspconfig").tailwindcss.setup({ capabilities = capabilities })
-require("lspconfig").html.setup({ filetypes = { "html", "handlebars" } })
-require("lspconfig").rust_analyzer.setup({})
-require("lspconfig").terraformls.setup({})
+vim.lsp.enable("eslint")
+vim.lsp.enable("lua_ls")
+vim.lsp.enable("tailwindcss")
+vim.lsp.enable("rust_analyzer")
+vim.lsp.enable("terraformls")
+vim.lsp.config("html", { filetypes = { "html", "handlebars" }, capabilities = capabilities })
+vim.lsp.enable("html")
 
 require("elixir").setup({
 	nextls = {
