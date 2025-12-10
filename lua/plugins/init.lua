@@ -19,10 +19,6 @@ return {
 	{ "echasnovski/mini.nvim", version = "*" },
 	"nvim-tree/nvim-web-devicons",
 	{
-		"folke/trouble.nvim",
-		dependencies = { "nvim-tree/nvim-web-devicons" },
-	},
-	{
 		"nvim-lualine/lualine.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 	},
