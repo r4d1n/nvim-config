@@ -13,7 +13,6 @@ conform.setup({
 		typescript = { "eslint_d", "prettierd", "prettier", stop_after_first = true },
 		lua = { "stylua" },
 		rust = { "rustfmt" },
-		terraform = { "terraformat" },
 	},
 })
 
