@@ -18,6 +18,7 @@ vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
 vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
 
 require("lazy").setup("plugins")
+require("oil").setup()
 require("configs.conform")
 require("configs.gitsigns")
 require("configs.lsp")
