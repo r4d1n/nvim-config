@@ -33,7 +33,7 @@ return {
 	},
 	{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 	{ "sindrets/diffview.nvim", dependencies = "nvim-lua/plenary.nvim" },
-	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate", branch = "master" }, -- pin legacy master branch for now due to breaking migration to `main`
 	{ "elixir-tools/elixir-tools.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
 	{
 		"folke/which-key.nvim",
