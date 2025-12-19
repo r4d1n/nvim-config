@@ -9,8 +9,13 @@ conform.setup({
 		return { timeout_ms = 500, lsp_fallback = true }
 	end,
 	formatters_by_ft = {
-		javascript = { "eslint_d", "prettierd", "prettier", stop_after_first = true },
 		typescript = { "eslint_d", "prettierd", "prettier", stop_after_first = true },
+		typescriptreact = { "eslint_d", "prettierd", "prettier", stop_after_first = true },
+		javascript = { "eslint_d", "prettierd", "prettier", stop_after_first = true },
+		javascriptreact = { "eslint_d", "prettierd", "prettier", stop_after_first = true },
+		json = { "eslint_d", "prettierd", "prettier", stop_after_first = true },
+		html = { "eslint_d", "prettierd", "prettier", stop_after_first = true },
+		css = { "eslint_d", "prettierd", "prettier", stop_after_first = true },
 		lua = { "stylua" },
 		rust = { "rustfmt" },
 	},
