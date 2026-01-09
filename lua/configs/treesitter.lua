@@ -13,11 +13,7 @@ vim.api.nvim_create_autocmd("FileType", {
 			return
 		end
 
-		-- Try to add the language, if it fails, install it
-		local ok = pcall(vim.treesitter.language.add, lang)
-		if not ok then
-			require("nvim-treesitter").install(lang)
-		end
+		require("nvim-treesitter").install(lang)
 	end,
 })
 
