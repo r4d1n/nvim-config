@@ -1,43 +1,71 @@
-require("nvim-treesitter.configs").setup({
-	-- A list of parser names, or "all"
-	ensure_installed = {
-		"javascript",
-		"typescript",
-		"tsx",
-		"json",
-		"lua",
-		"prisma",
-		"elixir",
-		"erlang",
-		"html",
-		"heex",
-		"eex",
-		"glimmer",
-		"hcl",
-		"terraform",
-	},
+-- Auto-install parsers when opening a file
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "*",
+	callback = function(args)
+		local filetype = vim.bo[args.buf].filetype
+		if filetype == "" then
+			return
+		end
 
-	-- Automatically install missing parsers when entering buffer
-	-- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
-	-- auto_install = true,
-	-- Install parsers synchronously (only applied to `ensure_installed`)
-	-- sync_install = false,
+		-- Get the treesitter language for this filetype
+		local lang = vim.treesitter.language.get_lang(filetype)
+		if not lang then
+			return
+		end
 
-	highlight = {
-		enable = true,
-		disable = function(_, bufnr)
-			return vim.api.nvim_buf_line_count(bufnr) > 30000
-		end,
-	},
+		-- Try to add the language, if it fails, install it
+		local ok = pcall(vim.treesitter.language.add, lang)
+		if not ok then
+			require("nvim-treesitter").install(lang)
+		end
+	end,
+})
 
-	incremental_selection = {
-		enable = true,
-		keymaps = {
-			init_selection = "<CR>",
-			scope_incremental = "<CR>",
-			node_incremental = "<TAB>",
-			node_decremental = "<S-TAB>",
-		},
-	},
-	indent = { enable = true },
+-- Enable treesitter highlighting for all filetypes
+-- with performance optimization for large files
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "*",
+	callback = function(args)
+		local bufnr = args.buf
+		local filetype = vim.bo[bufnr].filetype
+
+		if filetype == "" then
+			return
+		end
+
+		-- Performance optimization: disable for large files (>30,000 lines)
+		if vim.api.nvim_buf_line_count(bufnr) > 30000 then
+			return
+		end
+
+		-- Get the treesitter language for this filetype
+		local lang = vim.treesitter.language.get_lang(filetype)
+		if not lang then
+			return
+		end
+
+		-- Enable treesitter highlighting
+		pcall(vim.treesitter.start, bufnr, lang)
+	end,
+})
+
+-- Enable treesitter-based indentation
+-- Set indentexpr for supported filetypes
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "*",
+	callback = function(args)
+		local bufnr = args.buf
+		local filetype = vim.bo[bufnr].filetype
+
+		if filetype == "" then
+			return
+		end
+
+		-- Get the treesitter language for this filetype
+		local lang = vim.treesitter.language.get_lang(filetype)
+		if lang then
+			-- Use treesitter for indentation if available
+			vim.bo[bufnr].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+		end
+	end,
 })
