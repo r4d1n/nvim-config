@@ -11,21 +11,6 @@ vim.lsp.enable("html")
 
 require("typescript-tools").setup({})
 
-require("elixir").setup({
-	nextls = {
-		enable = true,
-		init_options = {
-			experimental = {
-				completions = {
-					enable = true, -- control if completions are enabled. defaults to false
-				},
-			},
-		},
-	},
-	credo = { enable = true },
-	elixirls = { enable = false },
-})
-
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
 	underline = true,
 	virtual_text = false,

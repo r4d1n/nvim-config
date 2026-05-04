@@ -34,7 +34,6 @@ return {
 	{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 	{ "sindrets/diffview.nvim", dependencies = "nvim-lua/plenary.nvim" },
 	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate", branch = "main" },
-	{ "elixir-tools/elixir-tools.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
 	{
 		"folke/which-key.nvim",
 		event = "VeryLazy",
