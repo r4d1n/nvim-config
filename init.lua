@@ -2,6 +2,8 @@ vim.g.mapleader = " "
 
 -- Build hooks + :PackUpdate/:PackStatus/:PackClean. Must come before add().
 require("configs.pack")
+-- dadbod-ui reads its g: options when sourced. Must come before add().
+require("configs.dadbod")
 
 local gh = function(x)
 	return "https://github.com/" .. x
@@ -27,6 +29,9 @@ vim.pack.add({
 	gh("airblade/vim-rooter"),
 	gh("sindrets/diffview.nvim"),
 	gh("oysandvik94/curl.nvim"),
+	gh("tpope/vim-dadbod"),
+	gh("kristijanhusak/vim-dadbod-ui"),
+	gh("kristijanhusak/vim-dadbod-completion"),
 	gh("nvim-telescope/telescope.nvim"),
 	gh("nvim-telescope/telescope-fzf-native.nvim"),
 	{ src = gh("nvim-treesitter/nvim-treesitter"), version = "main" },
