@@ -7,7 +7,7 @@ end
 
 -- Overrides of the global LSP maps with rust-analyzer-aware versions
 map("K", { "hover", "actions" }, "Hover with actions")
-map("<leader>ca", "codeAction", "Code action (grouped)")
+map("gra", "codeAction", "Code action (grouped)")
 
 map("<leader>re", "explainError", "Explain error")
 map("<leader>rd", "renderDiagnostic", "Render diagnostic (cargo style)")
