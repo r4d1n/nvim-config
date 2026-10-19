@@ -17,6 +17,8 @@ vim.pack.add({
 	{ src = gh("saghen/blink.cmp"), version = vim.version.range("1") },
 	gh("neovim/nvim-lspconfig"),
 	gh("pmizio/typescript-tools.nvim"),
+	{ src = gh("mrcjkb/rustaceanvim"), version = vim.version.range("^9") },
+	{ src = gh("saecki/crates.nvim"), version = vim.version.range("0.7") },
 	gh("mason-org/mason.nvim"),
 	gh("echasnovski/mini.nvim"),
 	gh("nvim-lualine/lualine.nvim"),
@@ -42,6 +44,7 @@ require("configs.settings")
 require("configs.mason")
 require("configs.blink")
 require("configs.lsp")
+require("configs.rust")
 require("configs.conform")
 require("configs.curl")
 require("configs.gitsigns")

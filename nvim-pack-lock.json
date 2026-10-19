@@ -18,6 +18,11 @@
       "rev": "016802de402556da54c36bd7359b441266b01cdd",
       "src": "https://github.com/stevearc/conform.nvim"
     },
+    "crates.nvim": {
+      "rev": "afcd1cc3eeceb5783676fc8464389b9216a29d05",
+      "src": "https://github.com/saecki/crates.nvim",
+      "version": "0.7.0 - 0.8.0"
+    },
     "curl.nvim": {
       "rev": "f3c258e57d56a6158733a9e3bb5eeb931f204d19",
       "src": "https://github.com/oysandvik94/curl.nvim"
@@ -62,6 +67,11 @@
     "plenary.nvim": {
       "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
       "src": "https://github.com/nvim-lua/plenary.nvim"
+    },
+    "rustaceanvim": {
+      "rev": "9cb125de42c0256ed1bc1f9ded8d8f0381317a17",
+      "src": "https://github.com/mrcjkb/rustaceanvim",
+      "version": "9.0.0 - 10.0.0"
     },
     "snacks.nvim": {
       "rev": "882c996cf28183f4d63640de0b4c02ec886d01f2",

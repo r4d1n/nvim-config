@@ -18,6 +18,7 @@ conform.setup({
 		css = { "prettier" },
 		lua = { "stylua" },
 		rust = { "rustfmt" },
+		toml = { "taplo" },
 	},
 })
 
